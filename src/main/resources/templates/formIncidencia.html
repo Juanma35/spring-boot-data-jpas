@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-dark text-white">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<div th:object="${incidenci}" th:remove="tag"></div>
+
+				<form th:action="@{/formI}" th:object="${incidenci}" method="post">
+				
+					<div class="form-group row">
+						<label for="cliente" class="col-sm-2 col-form-label">cliente</label>
+						<select th:field="*{cliente}">
+							<option value="">Elige una cliente</option>
+							<option th:each="cliente : ${cliente}"
+								th:value="${cliente.nombre}" th:utext="${cliente.nombre}" />
+						</select>
+					</div>
+					
+							
+					<div class="form-group row">
+						<label for="servicio" class="col-sm-2 col-form-label">Servicio</label> <select
+							th:field="*{servicio}">
+							<option value="">Elige un Servicio</option>
+							<option th:each="servicio : ${servicio}"
+								th:value="${servicio.nombre}" th:utext="${servicio.nombre}" />
+						</select>
+					</div>												
+					 <div class="form-group row">
+						<label for="tecnico" class="col-sm-2 col-form-label">tecnico</label>
+
+						<select th:field="*{tecnico}">
+							<option value="">Elige un Tecnico</option>
+							<option th:each="tecnico : ${tecnicos}"
+								th:value="${tecnico.nombre}" th:utext="${tecnico.nombre}" />
+						</select>
+					</div>
+					
+					
+					
+					<div class="form-group row">
+						<label for="inventario" class="col-sm-2 col-form-label">inventario</label>
+						<div class="col-sm-6">
+
+							<input type="text" th:field="*{inventario}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('inventario')}"
+								th:errors="*{inventario}"></small>
+						</div>
+					</div>
+					
+					
+					<div class="form-group row">
+						<label for="fecha" class="col-sm-2 col-form-label">fecha</label>
+						<div class="col-sm-6">
+							<input type="date" th:field="*{fecha}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+						</div>
+					</div>
+					
+						<div class="form-group row">
+						<label for="exampleFormControlTextarea2">Resumen</label>
+						<div class="col-sm-6">
+						<textarea class="form-control rounded-2" th:field="*{resumen}"  rows="10"></textarea>
+							 <small
+								class="form-textarea text-danger"
+								th:if="${#fields.hasErrors('resumen')}" th:errors="*{resumen}"></small>
+						</div>
+					</div>
+												
+					
+
+					<div class="form-group row">
+						<div class="col-sm-8">
+							<input type="submit" th:value="${titulo}"
+								class="btn btn-secondary" /> <input type="reset" value="Reset"
+								class="btn btn-secondary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container py-4">
+
+		<div class="card bg-light">
+			<div class="card-header" th:text="${titulo}"></div>
+			<div class="card-body">
+
+				<h4 class="card-title">
+
+					<!--  th:href="@{/formT} hace referencia al metodo del controlador -->
+
+					<a th:href="@{/formT}" class="btn btn-primary btn-xs">crear
+						Tecnico</a>
+				</h4>
+				<table class="table table-striped table-bordered">
+					<thead class="thead-inverse">
+						<tr>
+							<th>id</th>
+							<th>nombre</th>
+							<th>usuario</th>
+							<th>contrase&ntilde;a</th>
+							<th>editar</th>
+							<th>eliminar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--  th:each="tecnico: ${tecnico} hace referencia al metodo del controlador -->
+
+						<tr th:each="tecnico: ${tecnico}">
+							<td th:text="${tecnico.id}"></td>
+							<td th:text="${tecnico.nombre}"></td>
+							<td th:text="${tecnico.usuario}"></td>
+							<td th:text="${tecnico.contrasena}"></td>
+
+
+							<!--  th:each="@{/formT/} + ${tecnico.id}hace referencia al metodo del controlador -->
+							<td><a class="btn btn-primary btn-xs"
+								th:href="@{/formT/} + ${tecnico.id}" th:text="'editar'"></a></td>
+
+							<!--  th:each=""@{/eliminarT/} + ${tecnico.id}" hace referencia al metodo del controlador -->
+
+							<td><a class="btn btn-danger btn-xs"
+								th:href="@{/eliminarT/} + ${tecnico.id}" th:text="'eliminar'"
+								onclick="return confirm('Estas seguro que quieres eliminar?');"></a></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
