@@ -24,16 +24,7 @@
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 						</div>
-					</div>
-					<div class="form-group row">
-						<label for="familia" class="col-sm-2 col-form-label">familia</label>
-						<div class="col-sm-6">
-							<input type="text" th:field="*{familia}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
-								class="form-text text-danger"
-								th:if="${#fields.hasErrors('familia')}" th:errors="*{familia}"></small>
-						</div>
-					</div>
+
 					<div class="form-group row">
 						<label for="precio" class="col-sm-2 col-form-label">precio</label>
 						<div class="col-sm-6">
@@ -42,17 +33,7 @@
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></small>
 						</div>
-					</div>
-					
-					<div class="form-group row">
-						<label for="stock" class="col-sm-2 col-form-label">stock</label>
-						<div class="col-sm-6">
-							<input type="text" th:field="*{stock}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
-								class="form-text text-danger"
-								th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></small>
-						</div>
-					</div>
+
 					<div class="form-group row">
 						<label for="foto" class="col-sm-2 col-form-label">foto</label>
 						<div class="col-sm-6">

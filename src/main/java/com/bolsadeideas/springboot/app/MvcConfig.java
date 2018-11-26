@@ -45,6 +45,9 @@ public class MvcConfig implements WebMvcConfigurer {
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 	
+
+
+
 	@Bean
 	public Jaxb2Marshaller jaxb2Marshaller() {
 		Jaxb2Marshaller marshaller =  new Jaxb2Marshaller();

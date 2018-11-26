@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bolsadeideas.springboot.app.models.dao.IIncidencia;
 import com.bolsadeideas.springboot.app.models.entity.Incidenci;
 
-
+//para controlar las incidencias
 @Service
 public class IncidenciaServiceImpl implements IIncidenciaService {
 

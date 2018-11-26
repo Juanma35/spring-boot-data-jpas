@@ -43,7 +43,7 @@ public class TecnicoServiceImple implements ITecnicoService {
 	@Override
 	public Page<Tecnico> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return tecnicoDao.findAll(pageable);
 	}
 
 }

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.bolsadeideas.springboot.app.models.dao.IEquiposDaso;
 import com.bolsadeideas.springboot.app.models.entity.inventario_rack;
 
+
+//para controlar el invertario de rack
 @Service
 public class ServiceEquipoImple implements IEquiposService {
 

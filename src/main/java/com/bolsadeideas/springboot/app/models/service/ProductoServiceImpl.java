@@ -51,7 +51,7 @@ public class ProductoServiceImpl implements IProductoService{
 	@Override
 	public Page<Producto> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-		return (Page<Producto>) productoDao.findAll();
+		return  productoDao.findAll(pageable);
 	}
 
 	

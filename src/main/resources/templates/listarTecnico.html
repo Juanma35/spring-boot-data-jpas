@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="layout/layout :: head"></head>
 <body>
 
@@ -15,7 +15,7 @@
 
 					<!--  th:href="@{/formT} hace referencia al metodo del controlador -->
 
-					<a th:href="@{/formT}" class="btn btn-primary btn-xs">crear
+					<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/formT}" class="btn btn-primary btn-xs">crear
 						Tecnico</a>
 				</h4>
 				<table class="table table-striped table-bordered">
@@ -25,8 +25,8 @@
 							<th>nombre</th>
 							<th>usuario</th>
 							<th>contrase&ntilde;a</th>
-							<th>editar</th>
-							<th>eliminar</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">editar</th>
+							<th sec:authorize="hasRole('ROLE_ADMIN')">eliminar</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,20 +38,20 @@
 							<td th:text="${tecnico.usuario}"></td>
 							<td th:text="${tecnico.contrasena}"></td>
 
-
 							<!--  th:each="@{/formT/} + ${tecnico.id}hace referencia al metodo del controlador -->
-							<td><a class="btn btn-primary btn-xs"
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-primary btn-xs"
 								th:href="@{/formT/} + ${tecnico.id}" th:text="'editar'"></a></td>
 
 							<!--  th:each=""@{/eliminarT/} + ${tecnico.id}" hace referencia al metodo del controlador -->
 
-							<td><a class="btn btn-danger btn-xs"
+							<td sec:authorize="hasRole('ROLE_ADMIN')"><a class="btn btn-danger btn-xs"
 								th:href="@{/eliminarT/} + ${tecnico.id}" th:text="'eliminar'"
 								onclick="return confirm('Estas seguro que quieres eliminar?');"></a></td>
 						</tr>
 					</tbody>
 
 				</table>
+				<nav th:replace="paginator-nav :: paginator"></nav>
 			</div>
 		</div>
 
