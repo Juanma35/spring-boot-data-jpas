@@ -17,7 +17,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -87,7 +86,7 @@ public class ArticuloControllers {
                 .body(recurso);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+
     @GetMapping(value = "/verA/{id}")
     public String ver(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 
@@ -161,7 +160,7 @@ public class ArticuloControllers {
     }
 
     // METODOS QUE SACA LOS FORMULARIOS
-    @Secured("ROLE_ADMIN")
+
     @RequestMapping(value = "/formA") // url
     public String crear(Map<String, Object> model) {
 
@@ -176,7 +175,6 @@ public class ArticuloControllers {
 
     // METODOS QUE GUARDA LOS DATOS DEL FORMULARIO
 
-    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/formA", method = RequestMethod.POST)
     public String guardar(@Valid Producto articulo, BindingResult result, Model model,
                           @RequestParam("file") MultipartFile foto, RedirectAttributes flash, SessionStatus status) {
@@ -251,7 +249,6 @@ public class ArticuloControllers {
     }
 
     // METODO QUE RECOGE EL ID DEL TECNICO PARA PODER MODIFICAR Y LOS GUARDA
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/formA/{id}") // url
     public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
 
@@ -281,7 +278,6 @@ public class ArticuloControllers {
 
     // METODO QUE ACTUA SOBRE EL BOTON ELIMINAR SOBRE EL ID Y ELIMINA LA
     // INFORMACION DEVUELVE LA LISTA ACTUALIZADA
-    @Secured("ROLE_ADMIN")
     @RequestMapping(value = "/eliminarA/{id}") // url
     public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 

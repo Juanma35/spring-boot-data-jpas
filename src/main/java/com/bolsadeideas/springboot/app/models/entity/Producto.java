@@ -21,12 +21,15 @@ public class Producto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	private String codigo;
+
 	private String nombre;
 
 	private Double precio;
 	
 	private String foto;
-	
+
+	private int cantidad;
 	
 
 	@Temporal(TemporalType.DATE)
@@ -36,6 +39,22 @@ public class Producto implements Serializable {
 	@PrePersist
 	public void prePersist() {
 		createAt = new Date();
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	public Long getId() {

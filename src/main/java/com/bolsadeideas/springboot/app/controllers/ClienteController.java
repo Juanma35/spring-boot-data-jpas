@@ -226,7 +226,7 @@ public class ClienteController {
 				flash.addFlashAttribute("info", mensajeFotoEliminar);
 			}
 
-		}
+		}//TODO TERMINAR LOS DE LAS FOTOS Y PONER IGUAL QUE ENCLIENTES
 		return "redirect:/listar";
 	}
 	

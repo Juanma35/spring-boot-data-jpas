@@ -28,6 +28,8 @@ public class ItemFactura implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Producto producto;
 
+
+
 	public Long getId() {
 		return id;
 	}
