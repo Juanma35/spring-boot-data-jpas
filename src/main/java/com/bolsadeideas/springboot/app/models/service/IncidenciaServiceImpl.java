@@ -2,6 +2,8 @@ package com.bolsadeideas.springboot.app.models.service;
 
 import java.util.List;
 
+import com.bolsadeideas.springboot.app.models.entity.Cliente;
+import com.bolsadeideas.springboot.app.models.entity.Tecnico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +20,6 @@ public class IncidenciaServiceImpl implements IIncidenciaService {
 	
 	
 	@Autowired
-	
 	private IIncidencia incidenciaDao;
 	
 	@Override
@@ -52,13 +53,12 @@ public class IncidenciaServiceImpl implements IIncidenciaService {
 	@Override
 	public Page<Incidenci> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
-		return null;
+		return incidenciaDao.findAll(pageable);
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
 
 }

@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="layout/layout :: head"></head>
 <body>
 
@@ -10,14 +10,15 @@
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 				<h4 class="card-title">
-					<a th:href="@{/formI}" class="btn btn-primary btn-xs">crear	Incidencia</a>
+
+					<a sec:authorize="hasRole('ROLE_ADMIN')"  th:href="@{/formI}" class="btn btn-primary btn-xs">crear	Incidencia</a>
 				</h4>
+
 				<table class="table table-striped table-bordered">
 					<thead class="thead-inverse">
 						<tr>
 							<th>id</th>
 							<th>cliente</th>
-						<!-- 	<th>inventario</th>
 							<th>tecnico</th>
 							<th>fecha</th>
 							<th>servicio</th>
@@ -30,27 +31,23 @@
 					</thead>
 					<tbody>
 						
-						<tr th:each="incidenci: ${incidencia}">
-							<td th:text="${incidencia.id}"></td>
-							<td th:text="${incidencia.cliente}"></td>
-							
-							<!-- <td th:text="${incidencia.inventario}"></td>
-							<td th:text="${incidencia.tecnico}"></td>
-							<td th:text="${incidencia.fecha}"></td>
-							<td th:text="${incidencia.resumen}"></td>
-							<td th:text="${incidencia.servicio}"></td> -->
-
+						<tr th:each="incidenci: ${incidenci}">
+							<td th:text="${incidenci.id}"></td>
+							<td th:text="${incidenci.cliente}"></td>
+							<td th:text="${incidenci.tecnico}"></td>
+							<td th:text="${{incidenci.createAt_Realizacion}}"></td>
+							<td th:text="${incidenci.servicio}"></td>
+							<td th:text="${incidenci.descripcion}"></td>
 
 							<!--  th:each="@{/formI/} + ${incidencia.id}hace referencia al metodo del controlador -->
 							<td><a class="btn btn-primary btn-xs"
 								th:href="@{/formI/} + ${incidenci.id}" th:text="'editar'"></a></td>
-
 							<!--  th:each=""@{/eliminarT/} + ${tecnico.id}" hace referencia al metodo del controlador -->
-
-							
 					</tbody>
 
 				</table>
+				<nav th:replace="paginator-nav :: paginator"></nav>
+
 			</div>
 		</div>
 

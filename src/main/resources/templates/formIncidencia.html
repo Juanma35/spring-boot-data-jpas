@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:h="http://www.w3.org/1999/xhtml">
 <head th:replace="layout/layout :: head"></head>
 <body>
 
@@ -26,7 +26,8 @@
 					
 							
 					<div class="form-group row">
-						<label for="servicio" class="col-sm-2 col-form-label">Servicio</label> <select
+						<label for="servicio" class="col-sm-2 col-form-label">Servicio</label>
+						<select
 							th:field="*{servicio}">
 							<option value="">Elige un Servicio</option>
 							<option th:each="servicio : ${servicio}"
@@ -35,46 +36,29 @@
 					</div>												
 					 <div class="form-group row">
 						<label for="tecnico" class="col-sm-2 col-form-label">tecnico</label>
-
 						<select th:field="*{tecnico}">
 							<option value="">Elige un Tecnico</option>
 							<option th:each="tecnico : ${tecnicos}"
 								th:value="${tecnico.nombre}" th:utext="${tecnico.nombre}" />
 						</select>
 					</div>
-					
-					
-					
 					<div class="form-group row">
-						<label for="inventario" class="col-sm-2 col-form-label">inventario</label>
+						<label for="createAt_Realizacion" class="col-sm-2 col-form-label">fecha Cita</label>
 						<div class="col-sm-6">
-
-							<input type="text" th:field="*{inventario}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+							<input type="text" class="form-control"  th:field="*{createAt_Realizacion}"
+							th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
-								th:if="${#fields.hasErrors('inventario')}"
-								th:errors="*{inventario}"></small>
-						</div>
-					</div>
-					
-					
-					<div class="form-group row">
-						<label for="fecha" class="col-sm-2 col-form-label">fecha</label>
-						<div class="col-sm-6">
-							<input type="date" th:field="*{fecha}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
-								class="form-text text-danger"
-								th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></small>
+								th:if="${#fields.hasErrors('createAt_Realizacion')}" th:errors="*{createAt_Realizacion}"></small>
 						</div>
 					</div>
 					
 						<div class="form-group row">
-						<label for="exampleFormControlTextarea2">Resumen</label>
+						<label for="exampleFormControlTextarea2" class="col-sm-2 col-form-label">Descripcion</label>
 						<div class="col-sm-6">
-						<textarea class="form-control rounded-2" th:field="*{resumen}"  rows="10"></textarea>
+						<textarea class="form-control rounded-2" th:field="*{descripcion}"  rows="10"></textarea>
 							 <small
 								class="form-textarea text-danger"
-								th:if="${#fields.hasErrors('resumen')}" th:errors="*{resumen}"></small>
+								th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></small>
 						</div>
 					</div>
 												

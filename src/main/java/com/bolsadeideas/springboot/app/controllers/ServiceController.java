@@ -121,6 +121,7 @@ public class ServiceController {
 		Servicio servicio = new Servicio();
 		List<Tecnico> list = tecnicoService.findAll();
 		model.put("servicio", servicio);
+
 		((Model) model).addAttribute("tecnicos", list);
 		
 		model.put("titulo", "Crear servicio");

@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.bolsadeideas.springboot.datajpa.app</groupId>
-	<artifactId>spring-boot-data-jpa</artifactId>
+	<groupId>com.bolsadeideas.springboot.heroku</groupId>
+	<artifactId>spring-boot-heroku</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-data-jpa</name>
+	<name>spring-boot-heroku</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>

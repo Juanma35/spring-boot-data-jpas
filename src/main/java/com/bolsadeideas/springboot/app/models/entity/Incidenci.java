@@ -2,38 +2,58 @@ package com.bolsadeideas.springboot.app.models.entity;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 
 @Entity
 @Table(name="incidenci")
 public class Incidenci {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String nombre;
-	
+
+	private String cliente;
+
 	private String tecnico;
 	
 	private String foto;
-	
-	
-	
 
-	public String getFoto() {
-		return foto;
+	private String descripcion;
+
+	private String servicio;
+
+
+
+	@Column(name = "create_at")
+	@Temporal(TemporalType.DATE)
+	private Date createAt;
+
+	@Column(name = "create_at_Realizacion")
+	private Date createAt_Realizacion;
+
+
+
+	private String prioridad;
+
+	private String departamentos;
+
+	private String estado;
+
+	public String getCliente() {
+		return cliente;
 	}
 
-	public void setFoto(String foto) {
-		this.foto = foto;
+	public void setCliente(String cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getTecnico() {
@@ -44,12 +64,27 @@ public class Incidenci {
 		this.tecnico = tecnico;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getServicio() {
+		return servicio;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setServicio(String servicio) {
+		this.servicio = servicio;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+
+	@PrePersist
+	public void prePersist() {
+		createAt = new Date();
 	}
 
 	public Long getId() {
@@ -62,8 +97,51 @@ public class Incidenci {
 
 
 
-	
-	
-	
-	
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public Date getCreateAt_Realizacion() {
+		return createAt_Realizacion;
+	}
+
+	public void setCreateAt_Realizacion(Date createAt_Realizacion) {
+		this.createAt_Realizacion = createAt_Realizacion;
+	}
+
+	public String getPrioridad() {
+		return prioridad;
+	}
+
+	public void setPrioridad(String prioridad) {
+		this.prioridad = prioridad;
+	}
+
+	public String getDepartamentos() {
+		return departamentos;
+	}
+
+	public void setDepartamentos(String departamentos) {
+		this.departamentos = departamentos;
+	}
 }

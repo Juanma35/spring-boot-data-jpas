@@ -16,22 +16,12 @@ import  javax.validation.constraints.NotEmpty;
 @Table(name="servicio")
 public class Servicio implements Serializable{
 
-
-
-	
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
 
 	@Id	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	
+
 	@NotEmpty
 	private String nombre;
 	

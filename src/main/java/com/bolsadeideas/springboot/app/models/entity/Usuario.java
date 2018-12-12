@@ -74,9 +74,7 @@ public class Usuario implements Serializable {
 		this.roles = roles;
 	}
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 }
