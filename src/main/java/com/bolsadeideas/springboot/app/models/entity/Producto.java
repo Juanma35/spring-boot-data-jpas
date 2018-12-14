@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "productos")
@@ -28,13 +29,13 @@ public class Producto implements Serializable {
 	@NotEmpty
 	private String nombre;
 
-	@NotEmpty
+	@NotNull
 	private Double precio;
 
 	@NotEmpty
 	private String foto;
 
-	@NotEmpty
+	@NotNull
 	private int cantidad;
 	
 
