@@ -61,7 +61,6 @@ public class ArticuloControllers {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     // Cramos una cosantes de uploads
-
     private static final String UPLOADS_FOLDER = "uploads";
 
     protected final Log logger = LogFactory.getLog(this.getClass());

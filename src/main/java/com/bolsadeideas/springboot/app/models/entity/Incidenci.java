@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,14 +22,19 @@ public class Incidenci {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	private String cliente;
 
+	@NotEmpty
 	private String tecnico;
-	
+
+	@NotEmpty
 	private String foto;
 
+	@NotEmpty
 	private String descripcion;
 
+	@NotEmpty
 	private String servicio;
 
 

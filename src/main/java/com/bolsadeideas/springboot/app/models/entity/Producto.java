@@ -12,6 +12,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "productos")
@@ -21,14 +22,19 @@ public class Producto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	private String codigo;
 
+	@NotEmpty
 	private String nombre;
 
+	@NotEmpty
 	private Double precio;
-	
+
+	@NotEmpty
 	private String foto;
 
+	@NotEmpty
 	private int cantidad;
 	
 
