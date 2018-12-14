@@ -11,7 +11,12 @@
 			<div class="card-header" th:text="${titulo}"></div>
 			<div class="card-body">
 
-				<div th:object="${incidenci}" th:remove="tag"></div>
+				<div th:object="${incidenci}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
+						role="alert">
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
 
 				<form th:action="@{/formI}" th:object="${incidenci}" method="post">
 				

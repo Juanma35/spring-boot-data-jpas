@@ -119,7 +119,9 @@ public class ServiceController {
 	public String crear(Map<String, Object> model) {
 
 		Servicio servicio = new Servicio();
+
 		List<Tecnico> list = tecnicoService.findAll();
+
 		model.put("servicio", servicio);
 
 		((Model) model).addAttribute("tecnicos", list);
@@ -136,11 +138,11 @@ public class ServiceController {
 		if(id > 0) {
 			servicio = servicioService.findOne(id);
 			if(servicio == null) {
-				flash.addFlashAttribute("error", "El ID del cliente no existe en la BBDD!");
+				flash.addFlashAttribute("error", "El ID del Servicio no existe en la BBDD!");
 				return "redirect:/listarS";//url
 			}
 		} else {
-			flash.addFlashAttribute("error", "El ID del cliente no puede ser cero!");
+			flash.addFlashAttribute("error", "El ID del Servicio no puede ser cero!");
 			return "redirect:/listarS";//url
 		}
 		model.put("servicio", servicio);

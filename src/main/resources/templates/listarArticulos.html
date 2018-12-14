@@ -13,6 +13,8 @@
                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/formA}" class="btn btn-primary btn-xs">crearArticulo</a>
             </h4>
             <a class="btn btn-success btn-xs float-right mx-1" th:href="@{'/listarA'(format=csv)}">CSV</a>
+            <a class="btn btn-outline-success btn-xs float-right mx-1" th:href="@{'/listarA'(format=xml)}">XML</a>
+            <a class="btn btn-outline-warning btn-xs float-right mx-1" th:href="@{'/listarA'(format=json)}">JSON</a>
             <table class="table table-striped table-bordered">
                 <thead class="thead-inverse">
                 <tr>

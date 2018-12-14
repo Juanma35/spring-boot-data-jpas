@@ -29,13 +29,13 @@ public class Producto implements Serializable {
 	@NotEmpty
 	private String nombre;
 
-	@NotNull
+
 	private Double precio;
 
 	@NotEmpty
 	private String foto;
 
-	@NotNull
+
 	private int cantidad;
 	
 

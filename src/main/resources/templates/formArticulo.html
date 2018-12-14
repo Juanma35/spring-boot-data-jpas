@@ -12,6 +12,9 @@
 			<div class="card-body">
 
 				<div th:object="${articulo}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
 
 				</div>
 
