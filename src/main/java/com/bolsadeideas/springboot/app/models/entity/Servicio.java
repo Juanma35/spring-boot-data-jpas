@@ -30,8 +30,8 @@ public class Servicio implements Serializable{
 	
 	@NotNull
 	private Double precio;
-	
-	@NotNull
+
+	@NotEmpty
 	private String tecnico;
 
 	public String getTecnico() {

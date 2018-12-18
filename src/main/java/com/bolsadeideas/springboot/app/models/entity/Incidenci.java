@@ -28,7 +28,7 @@ public class Incidenci {
 	@NotEmpty
 	private String tecnico;
 
-	@NotEmpty
+
 	private String foto;
 
 	@NotEmpty

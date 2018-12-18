@@ -19,10 +19,11 @@
 				</div>
 
 				<form th:action="@{/formA}" th:object="${articulo}" method="post" enctype="multipart/form-data">
+
 					<div class="form-group row">
 						<label for="codigo" class="col-sm-2 col-form-label">Codigo</label>
 						<div class="col-sm-6">
-							<input type="text" th:field="*{codigo}" class="form-control"
+								<input type="text" th:field="*{codigo}" class="form-control"
 								   th:errorclass="'form-control alert-danger'" /> <small
 								class="form-text text-danger"
 								th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></small>

@@ -15,15 +15,15 @@ public class Tecnico implements Serializable  {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
+	@NotEmpty
 	private String nombre;
 
-
+	@NotEmpty
 	private String usuario;
-	
-	
+
+	@NotEmpty
 	private String contrasena;
-	
+
 
 	private String foto;
 
