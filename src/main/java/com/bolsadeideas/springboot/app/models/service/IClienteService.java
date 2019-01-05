@@ -12,8 +12,6 @@ import com.bolsadeideas.springboot.app.models.entity.Producto;
 public interface IClienteService {
 
 	public List<Cliente> findAll();
-	
-	public Page<Cliente> findAll(Pageable pageable);
 
 	public void save(Cliente cliente);
 	
@@ -32,7 +30,7 @@ public interface IClienteService {
 	public Factura findFacturaById(Long id);
 	
 	public void deleteFactura(Long id);
-	
+	public Page<Cliente> findAll(Pageable pageable);
 	public Factura fetchFacturaByIdWithClienteWhithItemFacturaWithProducto(Long id);
 
 }

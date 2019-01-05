@@ -39,7 +39,7 @@ public class FacturaXlsxView extends AbstractXlsxView {
 		
 		row = sheet.createRow(1);
 		cell = row.createCell(0);
-		cell.setCellValue(factura.getCliente().getNombre() + " " + factura.getCliente().getApellido());
+		cell.setCellValue(factura.getCliente().getNombre() + " " + factura.getCliente().getDireccion());
 		
 		row = sheet.createRow(2);
 		cell= row.createCell(0);

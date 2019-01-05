@@ -22,21 +22,19 @@ public class Incidenci {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotEmpty
-	private String cliente;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Cliente cliente;
 
-	@NotEmpty
-	private String tecnico;
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Tecnico tecnico;
 
 	private String foto;
 
-	@NotEmpty
+
 	private String descripcion;
 
-	@NotEmpty
-	private String servicio;
-
+	@ManyToOne(fetch=FetchType.LAZY)
+	private Servicio servicio;
 
 
 	@Column(name = "create_at")
@@ -54,27 +52,27 @@ public class Incidenci {
 
 	private String estado;
 
-	public String getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(String cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
-	public String getTecnico() {
+	public Tecnico getTecnico() {
 		return tecnico;
 	}
 
-	public void setTecnico(String tecnico) {
+	public void setTecnico(Tecnico tecnico) {
 		this.tecnico = tecnico;
 	}
 
-	public String getServicio() {
+	public Servicio getServicio() {
 		return servicio;
 	}
 
-	public void setServicio(String servicio) {
+	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
@@ -85,8 +83,6 @@ public class Incidenci {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-
 
 	@PrePersist
 	public void prePersist() {
@@ -100,8 +96,6 @@ public class Incidenci {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public String getFoto() {
 		return foto;

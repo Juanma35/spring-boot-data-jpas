@@ -31,16 +31,6 @@ public class Servicio implements Serializable{
 	@NotNull
 	private Double precio;
 
-	@NotEmpty
-	private String tecnico;
-
-	public String getTecnico() {
-		return tecnico;
-	}
-
-	public void setTecnico(String tecnico) {
-		this.tecnico = tecnico;
-	}
 
 	public Long getId() {
 		return id;

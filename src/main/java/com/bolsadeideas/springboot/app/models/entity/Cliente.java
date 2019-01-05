@@ -30,11 +30,23 @@ public class Cliente implements Serializable {
 	private String nombre;
 	
 	@NotEmpty
-	private String apellido;
-	
+	private String direccion;
+
+	@NotEmpty
+	private String telefono;
+
 	@NotEmpty
 	@Email
 	private String email;
+
+	@NotEmpty
+	private String tipo;
+
+	@NotEmpty
+	private String observaciones;
+
+	@NotEmpty
+	private String actictud;
 
 	@NotNull
 	@Column(name = "create_at")
@@ -49,6 +61,7 @@ public class Cliente implements Serializable {
 	
 	
 	public Cliente() {
+
 		facturas = new ArrayList<Factura>();
 	}
 
@@ -71,12 +84,8 @@ public class Cliente implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
 	}
 
 	public String getEmail() {
@@ -115,9 +124,49 @@ public class Cliente implements Serializable {
 		facturas.add(factura);
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public String getActictud() {
+		return actictud;
+	}
+
+	public void setActictud(String actictud) {
+		this.actictud = actictud;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	@Override
 	public String toString() {
-		return nombre + " " + apellido;
+		return nombre ;
 	}
 
 }

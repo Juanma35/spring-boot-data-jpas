@@ -19,21 +19,15 @@ public class Producto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotEmpty
-	@Max(4)
+
 	private String codigo;
 
-	@NotEmpty
 	private String nombre;
-
 
 	private Double precio;
 
-
 	private String foto;
 
-
-	@Min(1)
 	private int cantidad;
 	
 

@@ -34,9 +34,9 @@
 						<tr th:each="incidenci: ${incidenci}">
 							<td th:text="${incidenci.id}"></td>
 							<td th:text="${incidenci.cliente}"></td>
-							<td th:text="${incidenci.tecnico}"></td>
+							<td th:text="${incidenci.tecnico.nombre}"></td>
 							<td th:text="${{incidenci.createAt_Realizacion}}"></td>
-							<td th:text="${incidenci.servicio}"></td>
+							<td th:text="${incidenci.servicio.nombre}"></td>
 							<td th:text="${incidenci.descripcion}"></td>
 
 							<!--  th:each="@{/formI/} + ${incidencia.id}hace referencia al metodo del controlador -->

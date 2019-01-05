@@ -15,24 +15,15 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
-			
-			
-			
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listar}">Clientes</a></li>
-						<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listarT}">Tecnicos</a></li> 
-						<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listarA}">Articulos</a></li> 
-						<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listarS}">Servicios</a></li> 
-						<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listarI}">Incidencias</a></li> 
-						<li class="nav-item"><a class="nav-link" href="#about"
-						th:href="@{/listarIn}">Invenario_Rack</a></li> 
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarC}">Clientes</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarT}">Tecnicos</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarA}">Articulos</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarS}">Servicios</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarI}">Incidencias</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about" 	th:href="@{/listarIn}">Invenario_Rack</a></li>
 						<ul class="navbar-nav navbar-right">
 					<li sec:authorize="!isAuthenticated()"><a class="btn btn-outline-primary" th:href="@{/login}" th:text="#{text.menu.signin}">Sign In</a></li>
 
