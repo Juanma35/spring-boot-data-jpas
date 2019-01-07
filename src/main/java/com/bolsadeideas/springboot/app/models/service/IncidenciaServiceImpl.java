@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bolsadeideas.springboot.app.models.dao.IIncidencia;
 import com.bolsadeideas.springboot.app.models.entity.Incidenci;
 
+import javax.persistence.Cacheable;
+
 //para controlar las incidencias
 @Service
 public class IncidenciaServiceImpl implements IIncidenciaService {
@@ -21,7 +23,10 @@ public class IncidenciaServiceImpl implements IIncidenciaService {
 	
 	@Autowired
 	private IIncidencia incidenciaDao;
-	
+
+
+
+
 	@Override
 	@Transactional(readOnly = true)
 	public List<Incidenci> findAll() {

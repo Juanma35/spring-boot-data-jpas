@@ -32,6 +32,8 @@
 					<tbody>
 						
 						<tr th:each="incidenci: ${incidenci}">
+							<td sec:authorize="hasRole('ROLE_USER')"><a class="btn btn-primary btn-xs"
+																		th:href="@{/ver/} + ${incidenci.id}" th:text="${incidenci.id}"></a></td>
 							<td th:text="${incidenci.id}"></td>
 							<td th:text="${incidenci.cliente}"></td>
 							<td th:text="${incidenci.tecnico.nombre}"></td>

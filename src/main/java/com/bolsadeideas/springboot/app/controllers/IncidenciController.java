@@ -13,10 +13,12 @@ import com.bolsadeideas.springboot.app.util.paginator.PageRender;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,6 +28,7 @@ import org.springframework.security.web.servletapi.SecurityContextHolderAwareReq
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,6 +60,10 @@ public class IncidenciController {
 	
 	@Autowired
 	private IClienteService clienteService;
+
+
+	@Autowired
+	private MessageSource messageSource;
 
 	protected final Log logger = LogFactory.getLog(this.getClass());
 	
@@ -101,10 +108,6 @@ public class IncidenciController {
 				List<Cliente> listC = clienteService.findAll();
 				((Model) model).addAttribute("cliente", listC);
 
-
-
-
-
 				model.put("incidenci",incidenci);
 				model.put("titulo", "Crear Incidencia");
 				
@@ -139,7 +142,26 @@ public class IncidenciController {
 				return "redirect:/listarI";
 
 			}
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/formI/{id}")
+	public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash, Locale locale) {
 
+		Incidenci incidenci = null;
+
+		if (id > 0) {
+			incidenci = incidenciaService.findOne(id);
+			if (incidenci == null) {
+				flash.addFlashAttribute("error", messageSource.getMessage("text.cliente.flash.db.error", null, locale));
+				return "redirect:/listarI";
+			}
+		} else {
+			flash.addFlashAttribute("error", messageSource.getMessage("text.cliente.flash.id.error", null, locale));
+			return "redirect:/listarI";
+		}
+		model.put("incidenci", incidenci);
+		model.put("titulo", messageSource.getMessage("text.cliente.form.titulo.editar", null, locale));
+		return "formIncidencia";
+	}
 
 
 	private boolean hasRole(String role) {

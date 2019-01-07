@@ -59,9 +59,9 @@
 							<div class="form-group row">
 								<label for="tipo" class="col-sm-2 col-form-label" th:text="#{text.cliente.tipo}">Tipo</label>
 								<select th:field="*{tipo}" type="text" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="tipo" th:errorclass="'form-control alert-danger'">
-									<option value="Bueno">Bueno</option>
-									<option value="Regular">Regular</option>
-									<option value="Malo">Malo</option>
+									<option value="Particular">Particular</option>
+									<option value="Empresa">Empresa</option>
+
 								</select>
 								<div class="col-sm-6">
 									<small class="form-text text-danger" th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}"></small>

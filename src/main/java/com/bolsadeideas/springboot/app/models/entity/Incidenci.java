@@ -22,8 +22,11 @@ public class Incidenci {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Cliente cliente;
+
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Tecnico tecnico;
@@ -56,9 +59,11 @@ public class Incidenci {
 		return cliente;
 	}
 
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
 
 	public Tecnico getTecnico() {
 		return tecnico;
